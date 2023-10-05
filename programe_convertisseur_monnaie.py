@@ -52,6 +52,10 @@ dollarUS_image_rect=dollarUS_image.get_rect(topleft=(x/2-100,y_dollarUS))
 dollarUS_text=small_text_font.render('dollar US', True, color_text)
 dollarUS_text_rect=dollarUS_text.get_rect(topleft=(x/2-250,y_dollarUS+15))
 
+monnaie_us=pygame.image.load('photos/us-dollar.png')
+monnaie_us=pygame.transform.scale(monnaie_us,(hauteur_image*1.25,hauteur_image*1.25))
+
+
 #DOLLAR CANADIEN
 y_dollarCANADA=y_dollarUS+espacement_y
 dollarCANADA_image=pygame.image.load('photos/canada.png').convert_alpha()
@@ -59,6 +63,9 @@ dollarCANADA_image=pygame.transform.scale(dollarCANADA_image,(hauteur_image*1.25
 dollarCANADA_image_rect=dollarCANADA_image.get_rect(topleft=(x/2-100,y_dollarCANADA))
 dollarCANADA_text=small_text_font.render('dollar CANADIEN', True, color_text)
 dollarCANADA_text_rect=dollarCANADA_text.get_rect(topleft=(x/2-325,y_dollarCANADA+15))
+
+monnaie_canada=pygame.image.load('photos/canadian-dollar.png')
+monnaie_canada=pygame.transform.scale(monnaie_canada,(hauteur_image*1.25,hauteur_image*1.25))
 
 #DOLLAR AUSTRALIEN
 y_dollarAUSTRALIEN=y_dollarCANADA+espacement_y
@@ -68,6 +75,9 @@ dollarAUSTRALIEN_image_rect=dollarAUSTRALIEN_image.get_rect(topleft=(x/2-100,y_d
 dollarAUSTRALIEN_text=small_text_font.render('dollar AUSTRALIEN', True, color_text)
 dollarAUSTRALIEN_text_rect=dollarAUSTRALIEN_text.get_rect(topleft=(x/2-325,y_dollarAUSTRALIEN+15))
 
+monnaie_australie=pygame.image.load('photos/australian-dollar.png')
+monnaie_australie=pygame.transform.scale(monnaie_australie,(hauteur_image*1.25,hauteur_image*1.25))
+
 #LIVRE STERLING
 y_STERLING=y_dollarAUSTRALIEN+espacement_y
 STERLING_image=pygame.image.load('photos/england.png').convert_alpha()
@@ -75,6 +85,9 @@ STERLING_image=pygame.transform.scale(STERLING_image,(hauteur_image*1.25,hauteur
 STERLING_image_rect=STERLING_image.get_rect(topleft=(x/2-100,y_STERLING))
 STERLING_text=small_text_font.render('livre sterling', True, color_text)
 STERLING_text_rect=STERLING_text.get_rect(topleft=(x/2-250,y_STERLING+15))
+
+monnaie_sterling=pygame.image.load('photos/pound.png')
+monnaie_sterling=pygame.transform.scale(monnaie_sterling,(hauteur_image*1.25,hauteur_image*1.25))
 
 #EURO
 y_EURO=200
@@ -84,6 +97,9 @@ EURO_image_rect=EURO_image.get_rect(topright=(x/2+100,y_EURO))
 EURO_text=small_text_font.render('EURO', True, color_text)
 EURO_text_rect=EURO_text.get_rect(topleft=(x/2+150,y_EURO+15))
 
+monnaie_euro=pygame.image.load('photos/euro.png')
+monnaie_euro=pygame.transform.scale(monnaie_euro,(hauteur_image*1.25,hauteur_image*1.25))
+
 #FRANC SUISSE
 y_FRANC_SUISSE=y_EURO+espacement_y
 FRANC_SUISSE_image=pygame.image.load('photos/switzerland.png').convert_alpha()
@@ -91,6 +107,9 @@ FRANC_SUISSE_image=pygame.transform.scale(FRANC_SUISSE_image,(hauteur_image*1.25
 FRANC_SUISSE_image_rect=FRANC_SUISSE_image.get_rect(topright=(x/2+100,y_FRANC_SUISSE))
 FRANC_SUISSE_text=small_text_font.render('franc suisse', True, color_text)
 FRANC_SUISSE_text_rect=FRANC_SUISSE_text.get_rect(topleft=(x/2+150,y_FRANC_SUISSE+15))
+
+monnaie_franc=pygame.image.load('photos/swiss-franc.png')
+monnaie_franc=pygame.transform.scale(monnaie_franc,(hauteur_image*1.25,hauteur_image*1.25))
 
 #YEN
 y_YEN=y_FRANC_SUISSE+espacement_y
@@ -100,6 +119,9 @@ YEN_image_rect=YEN_image.get_rect(topright=(x/2+100,y_YEN))
 YEN_text=small_text_font.render('YEN', True, color_text)
 YEN_text_rect=YEN_text.get_rect(topleft=(x/2+150,y_YEN+15))
 
+monnaie_yen=pygame.image.load('photos/yen.png')
+monnaie_yen=pygame.transform.scale(monnaie_yen,(hauteur_image*1.25,hauteur_image*1.25))
+
 #RAND
 y_RAND=y_YEN+espacement_y
 RAND_image=pygame.image.load('photos/south-africa.png').convert_alpha()
@@ -107,6 +129,9 @@ RAND_image=pygame.transform.scale(RAND_image,(hauteur_image*1.25,hauteur_image))
 RAND_image_rect=RAND_image.get_rect(topright=(x/2+100,y_RAND))
 RAND_text=small_text_font.render('RAND', True, color_text)
 RAND_text_rect=YEN_text.get_rect(topleft=(x/2+150,y_RAND+15))
+
+monnaie_rand=pygame.image.load('photos/south-african-rand.png')
+monnaie_rand=pygame.transform.scale(monnaie_rand,(hauteur_image*1.25,hauteur_image*1.25))
 
 rect1=[x/2-150,350]
 rect2=[x/2+150,350]
@@ -119,7 +144,7 @@ rect7=[x/2,750]
 rect_list=[rect1,rect2,rect3,rect4,rect5,rect6,rect7]
 
 list_image_pays=[dollarUS_image, 'US',  dollarCANADA_image, 'CANADA',dollarAUSTRALIEN_image,'AUSTRALIEN', STERLING_image, 'STERLING',EURO_image, 'EURO',FRANC_SUISSE_image, 'FRANC',YEN_image,'YEN', RAND_image, 'RAND']
-
+list_monnaie=[monnaie_us,'US',monnaie_canada,'CANADA',monnaie_australie,'AUSTRALIEN',monnaie_sterling,'STERLING',monnaie_euro,'EURO',monnaie_franc,'FRANC',monnaie_yen,'YEN',monnaie_rand,'RAND']
 activation_ecran_conversion=True
 activation_affichage_conversion=True
 
@@ -147,18 +172,22 @@ def ecran_accueil():
     screen.blit(RAND_text, RAND_text_rect)
 def ecran_conversion(monnaie):
 
-    global list_image_pays, rect_list, activation_ecran_conversion
+    global list_image_pays, rect_list, activation_ecran_conversion, list_monnaie
 
+    monnaie_depart_caractere=None
     # Create a text input box
-
+    i=0
+    while i<len(list_image_pays) :
+        if list_image_pays[i]==monnaie:
+            monnaie_depart_caractere=list_monnaie[i]
+        i+=2
 
     list_image_rect_associe=[]
     list_image_associee=[]
 
     pays_positionnes = 0
     rect_positionnes = 0
-    print(pays_positionnes)
-    while pays_positionnes<(len(list_image_pays)-1):
+    while pays_positionnes<(len(list_image_pays)):
         if monnaie!=(list_image_pays[pays_positionnes]):
             list_image_associee.append(list_image_pays[pays_positionnes])
             rect_image=list_image_pays[pays_positionnes].get_rect(center=(rect_list[rect_positionnes][0], rect_list[rect_positionnes][1]))
@@ -208,51 +237,54 @@ def ecran_conversion(monnaie):
                 while rect<(len(list_image_rect_associe)):
                     if list_image_rect_associe[rect].collidepoint(event.pos):
                         if list_image_associee[rect]==dollarCANADA_image:
-                            affichage_conversion(monnaie,dollarCANADA_image)
+                            affichage_conversion(monnaie,dollarCANADA_image,[monnaie_depart_caractere,monnaie_canada])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==dollarUS_image:
-                            affichage_conversion(monnaie,dollarUS_image)
+                            affichage_conversion(monnaie,dollarUS_image,[monnaie_depart_caractere,monnaie_us])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==dollarAUSTRALIEN_image:
-                            affichage_conversion(monnaie,dollarAUSTRALIEN_image)
+                            affichage_conversion(monnaie,dollarAUSTRALIEN_image,[monnaie_depart_caractere,monnaie_australie])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==FRANC_SUISSE_image:
-                            affichage_conversion(monnaie,FRANC_SUISSE_image)
+                            affichage_conversion(monnaie,FRANC_SUISSE_image,[monnaie_depart_caractere,monnaie_franc])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==YEN_image:
-                            affichage_conversion(monnaie,YEN_image)
+                            affichage_conversion(monnaie,YEN_image,[monnaie_depart_caractere,monnaie_yen])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==EURO_image:
-                            affichage_conversion(monnaie,EURO_image)
+                            affichage_conversion(monnaie,EURO_image,[monnaie_depart_caractere,monnaie_euro])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==RAND_image:
-                            affichage_conversion(monnaie,RAND_image)
+                            affichage_conversion(monnaie,RAND_image,[monnaie_depart_caractere,monnaie_rand])
                             activation_ecran_conversion=False
 
                         if list_image_associee[rect]==STERLING_image:
-                            affichage_conversion(monnaie,STERLING_image)
+                            affichage_conversion(monnaie,STERLING_image,[monnaie_depart_caractere,monnaie_sterling])
                             activation_ecran_conversion=False
                     rect+=1
 
 
 
         pygame.display.flip()
-def affichage_conversion(monnaie_depart, monnaie_arrivee):
+def affichage_conversion(monnaie_depart, monnaie_arrivee, list_monnaie_associee):
 
     global activation_affichage_conversion, activation_ecran_conversion
 
     color_passive = pygame.Color('White')
-    color_active = pygame.Color('Green')
+    color_active = pygame.Color('#338b34')
     color = color_passive
     input_text = ""
     text_box_rect = pygame.Rect(x / 2 -50, 300, 100, 40)
     active_text_box = None
+
+    monnaie_depart_signe_rect=list_monnaie_associee[0].get_rect(center=(x/2+130,325))
+    monnaie_arrivee_signe_rec=list_monnaie_associee[1].get_rect(center=(x/2+150,550))
 
     if activation_affichage_conversion:
         screen.blit(image_fond, image_fond_rect)
@@ -269,6 +301,8 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee):
         screen.blit(back_image,back_image_rect)
         screen.blit(fleche_image,fleche_image_rect)
         screen.blit(convert_image,convert_image_rect)
+        screen.blit(list_monnaie_associee[0],monnaie_depart_signe_rect)
+
 
     while activation_affichage_conversion:
         #print(pygame.mouse.get_pos())
@@ -286,6 +320,7 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee):
                     monnaie_convertie = "{:.3f}".format(monnaie_convertie)
                     monnaie_convertie_text = text_font.render(f'{monnaie_convertie}', True, color_text)
                     monnaie_convertie_text_rect = monnaie_convertie_text.get_rect(center=(x / 2, 550))
+                    screen.blit(list_monnaie_associee[1],monnaie_arrivee_signe_rec)
                     screen.blit(monnaie_convertie_text, monnaie_convertie_text_rect)
 
                 elif event.key == pygame.K_BACKSPACE:
@@ -314,10 +349,12 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee):
                     monnaie_convertie_text=text_font.render(f'{monnaie_convertie}',True, color_text)
                     monnaie_convertie_text_rect=monnaie_convertie_text.get_rect(center=(x/2,550))
                     screen.blit(monnaie_convertie_text,monnaie_convertie_text_rect)
+                    screen.blit(list_monnaie_associee[1], monnaie_arrivee_signe_rec)
+                    screen.blit(monnaie_convertie_text, monnaie_convertie_text_rect)
 
             if activation_affichage_conversion:
                 pygame.draw.rect(screen, color, text_box_rect)
-                text_surface = text_font.render(input_text, True, (0, 0, 0))
+                text_surface = text_font.render(input_text, True, color_text)
                 screen.blit(text_surface, (text_box_rect.x +5, text_box_rect.y -10))
 
             if active_text_box is not None:
