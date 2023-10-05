@@ -251,7 +251,7 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee):
     color_active = pygame.Color('Green')
     color = color_passive
     input_text = ""
-    text_box_rect = pygame.Rect(x / 2 -50, 300, 100, 50)
+    text_box_rect = pygame.Rect(x / 2 -50, 300, 100, 40)
     active_text_box = None
 
     if activation_affichage_conversion:
@@ -282,7 +282,12 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee):
             if event.type == pygame.KEYDOWN and active_text_box:
                 if event.key == pygame.K_RETURN:
                     # Handle the input (you can convert input_text to a numeric value here)
-                    print(taux_conversion(monnaie_depart,monnaie_arrivee))
+                    monnaie_convertie=int(input_text)*(taux_conversion(monnaie_depart,monnaie_arrivee))
+                    monnaie_convertie = "{:.3f}".format(monnaie_convertie)
+                    monnaie_convertie_text = text_font.render(f'{monnaie_convertie}', True, color_text)
+                    monnaie_convertie_text_rect = monnaie_convertie_text.get_rect(center=(x / 2, 550))
+                    screen.blit(monnaie_convertie_text, monnaie_convertie_text_rect)
+
                 elif event.key == pygame.K_BACKSPACE:
                     input_text = input_text[:-1]
                 else:
@@ -299,15 +304,21 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee):
                     ecran_accueil()
 
                 if back_image_rect.collidepoint(event.pos):
-
                     ecran_conversion(monnaie_depart)
                     activation_ecran_conversion=True
                     activation_affichage_conversion=False
 
+                if convert_image_rect.collidepoint(event.pos):
+                    monnaie_convertie = (int(input_text) * (taux_conversion(monnaie_depart, monnaie_arrivee)))
+                    monnaie_convertie = "{:.3f}".format(monnaie_convertie)
+                    monnaie_convertie_text=text_font.render(f'{monnaie_convertie}',True, color_text)
+                    monnaie_convertie_text_rect=monnaie_convertie_text.get_rect(center=(x/2,550))
+                    screen.blit(monnaie_convertie_text,monnaie_convertie_text_rect)
+
             if activation_affichage_conversion:
                 pygame.draw.rect(screen, color, text_box_rect)
-                text_surface = small_text_font.render(input_text, True, (0, 0, 0))
-                screen.blit(text_surface, (text_box_rect.x + 5, text_box_rect.y + 5))
+                text_surface = text_font.render(input_text, True, (0, 0, 0))
+                screen.blit(text_surface, (text_box_rect.x +5, text_box_rect.y -10))
 
             if active_text_box is not None:
                 active_text_box.w = max(100, text_surface.get_width() + 10)
