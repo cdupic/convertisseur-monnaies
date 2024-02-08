@@ -3,6 +3,9 @@ import sys
 import openpyxl
 from openpyxl import load_workbook
 
+import update_data_conversion
+#permet de refresh les taux de change
+
 pygame.init()
 
 #TAILLE FENÊTRE
@@ -283,7 +286,7 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee, list_monnaie_associee)
     text_box_rect = pygame.Rect(x / 2 -50, 300, 100, 40)
     active_text_box = None
 
-    monnaie_depart_signe_rect=list_monnaie_associee[0].get_rect(center=(x/2+130,325))
+    monnaie_depart_signe_rect=list_monnaie_associee[0].get_rect(center=(x/2+150,325))
     monnaie_arrivee_signe_rec=list_monnaie_associee[1].get_rect(center=(x/2+150,550))
 
     if activation_affichage_conversion:
@@ -344,7 +347,7 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee, list_monnaie_associee)
                     activation_affichage_conversion=False
 
                 if convert_image_rect.collidepoint(event.pos):
-                    monnaie_convertie = (int(input_text) * (taux_conversion(monnaie_depart, monnaie_arrivee)))
+                    monnaie_convertie = (float(input_text) * (taux_conversion(monnaie_depart, monnaie_arrivee)))
                     monnaie_convertie = "{:.3f}".format(monnaie_convertie)
                     monnaie_convertie_text=text_font.render(f'{monnaie_convertie}',True, color_text)
                     monnaie_convertie_text_rect=monnaie_convertie_text.get_rect(center=(x/2,550))
@@ -364,9 +367,9 @@ def affichage_conversion(monnaie_depart, monnaie_arrivee, list_monnaie_associee)
 
 def taux_conversion(monnaie_depart, monnaie_arrivee):
 
-    wb=load_workbook('convertisseur_table.xlsx')
+    wb=load_workbook('convertisseur_table_updated.xlsx')
     wa=wb.active
-    list_monnaies=[0,1,[dollarUS_image,'us'],[EURO_image,'euro'],[YEN_image,'yen'],[STERLING_image,'livre'],[FRANC_SUISSE_image,'franc'],[dollarCANADA_image,'canadien'],[dollarAUSTRALIEN_image,'australien'],[RAND_image,'rand']]
+    list_monnaies=[0,1,[dollarUS_image,'dollar'],[EURO_image,'Euro'],[YEN_image,'Japanese Yen'],[STERLING_image,'British Pound'],[FRANC_SUISSE_image,'Swiss Franc'],[dollarCANADA_image,'Canadian Dollar'],[dollarAUSTRALIEN_image,'Australian Dollar'],[RAND_image,'South African Rand']]
     for i in range (2,len(list_monnaies)):
 
         if monnaie_depart==list_monnaies[i][0]:
